@@ -6,6 +6,7 @@
                  [compojure "1.5.1"]
                  [cheshire "5.8.0"]
                  [base64-clj "0.1.1"]
+                 [failjure "1.2.0"]
                  [ring/ring-defaults "0.2.1"]
                  [ring/ring-json "0.4.0"]
                  ]

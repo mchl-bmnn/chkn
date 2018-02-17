@@ -1,14 +1,18 @@
 (ns chkn.handler-test
   (:require [clojure.test :refer :all]
             [ring.mock.request :as mock]
-            [chkn.handler :refer :all]))
+            [base64-clj.core :as base64]
+            [chkn.handler :refer :all]
+            [cheshire.core :as cheshire]))
 
-(deftest test-app
-  (testing "main route"
-    (let [response (app (mock/request :get "/"))]
+(deftest routes
+  (testing "main"
+    (let [payload (->> "Checkin" base64/encode (hash-map :checkin) cheshire/encode)
+          response (handler (-> (mock/request :post "/" payload)
+                                (mock/content-type "application/json")))]
       (is (= (:status response) 200))
-      (is (= (:body response) "Hello World"))))
+      (is (= "Checkin" (->> response :body cheshire/decode clojure.walk/keywordize-keys :checkin)))))
 
-  (testing "not-found route"
-    (let [response (app (mock/request :get "/invalid"))]
+  (testing "404"
+    (let [response (handler (mock/request :get "/invalid"))]
       (is (= (:status response) 404)))))

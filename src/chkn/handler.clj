@@ -2,23 +2,30 @@
   (:require
    [compojure.core :as compojure :refer [defroutes]]
    [compojure.route :as route]
+   [cheshire.generate :as encoder]
    [ring.middleware.defaults :as defaults]
    [ring.middleware.json :refer [wrap-json-body]]
    [base64-clj.core :as base64]
    [clojure.spec.alpha :as s]
+   [chkn.parser :as parser]
    [cheshire.core :as cheshire]
    [ring.middleware.json :refer [wrap-json-body]]))
+
+(encoder/add-encoder org.joda.time.DateTime
+                     (fn [c jsonGenerator]
+                       (.writeString jsonGenerator (str c))))
 
 (defroutes endpoints
   (compojure/POST "/" []
     (fn [r]
-      (let [{{checkin :checkin} :body} r]
-        (some->> checkin base64/decode (hash-map :checkin) cheshire/encode)))))
+      (let [{{c :checkin f :format} :body} r]
+        (some->> c base64/decode (parser/parse f) cheshire/encode)))))
 
 (s/def ::request-method (partial = :post))
 (s/def ::content-type (s/and string? #(clojure.string/includes? % "application/json") ))
 (s/def ::checkin string?)
-(s/def ::body (s/keys :req-un [::checkin]))
+(s/def ::format #{"txt"})
+(s/def ::body (s/keys :req-un [::format ::checkin]))
 (s/def ::uri (partial = "/"))
 (s/def ::request (s/keys :req-un [::uri ::request-method ::content-type ::body ]))
 

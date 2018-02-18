@@ -8,19 +8,18 @@
 
 
 (def request
-  (let [payload (->> "Checkin" base64/encode (hash-map :checkin) cheshire/encode)]
-    (-> (mock/request :post "/" payload)
+    (-> (mock/request :post "/" )
         (mock/content-type "application/json"))
-    )
   )
 
 (deftest routes
   (testing "main"
-    (let [payload (->> "Checkin" base64/encode (hash-map :checkin) cheshire/encode)
-          response (handler (-> (mock/request :post "/" payload)
-                                (mock/content-type "application/json")))]
+    (let [payload (->> "./mocks/checkin.txt" slurp base64/encode (hash-map :format "txt" :checkin) cheshire/encode)
+          response (handler (assoc request :body  (io/input-stream (.getBytes payload))))]
       (is (= (:status response) 200))
-      (is (= "Checkin" (->> response :body cheshire/decode clojure.walk/keywordize-keys :checkin)))))
+      (is (map? (->> response :body cheshire/decode clojure.walk/keywordize-keys)))
+      )
+    )
   )
 
 (deftest client-errors
@@ -46,13 +45,6 @@
     )
   (testing "Missing `checkin` field in body"
     (let [response (handler (assoc request :body  (io/input-stream (.getBytes "{}"))))
-
-          ]
-      (is (= 400 (:status response)))
-      )
-    )
-  (testing "Empty `checkin` field"
-    (let [response (handler (assoc request :body  (io/input-stream (.getBytes "{\"checkin\": []}"))))
 
           ]
       (is (= 400 (:status response)))

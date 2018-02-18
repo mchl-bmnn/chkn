@@ -1,0 +1,65 @@
+Ergebnis: Fahrzeug Daten lesen
+------------------------------
+
+Datum        : 20.11.2017 06:52:25
+Systemzeit   : 10435440
+PC-Name      : MMUC584498
+User-Name    : q372397
+Baureihe     : F048
+Batterie     : 81 Ah
+Ladestatus   : 85 %
+Umfang       : Alle Steuergeräte	
+JobStatus    : OKAY
+----------------------------------------------------------------------------------------------
+Adr Grobname   JobStatus  Status
+XX  F048       OKAY       FGNR             : 5H56021
+XX  F048       OKAY       FGNR (lang)      : WBAHU310205H56021
+XX  F048       OKAY       Klemme           : 15    
+XX  F048       OKAY       I-Stufe Werk     : F056-17-07-502
+XX  F048       OKAY       I-Stufe HO       : F056-19-03-400
+XX  F048       OKAY       I-Stufe CAS      : F056-17-07-502
+XX  F048       OKAY       FA-Auftrag       : 0719 JJ11
+XX  F048       OKAY       Lackcode         : 0B39
+XX  F048       OKAY       Polstercode      : HMAT
+XX  F048       OKAY       KM-Stand Anzeige : 4420
+XX  F048       OKAY       KM-Stand Absolut : 4420
+XX  F048       OKAY       KM-Stand CAS     : 4414 !! 
+XX  F048       OKAY       iGR Status       : Codiert, nicht deakt. (intelligente Generatorregelung)
+XX  F048       OKAY       Tankinhalt       : H2(R) 33.0 + H1(L) 26.5 = 59.5 
+XX  F048       OKAY       Betriebsstunden  : 258728 s
+XX  F048       OKAY       Systemzeit       : 10435440
+XX  F048       OKAY       SA's             : 1AG  1CA  1CB  1DE  21D  230  235  249  2PA  2TB
+XX  F048       OKAY       SA's             : 2VB  2VG  2VL  302  313  316  320  322  337  3DZ
+XX  F048       OKAY       SA's             : 3MC  402  420  423  428  430  431  470  473  481
+XX  F048       OKAY       SA's             : 493  494  4LS  508  534  548  563  5A4  5AR  5AT
+XX  F048       OKAY       SA's             : 5DF  5DP  610  654  674  698  6AC  6AE  6AK  6UP
+XX  F048       OKAY       SA's             : 704  710  715  760  775  7LF  801  851  879  8KA
+XX  F048       OKAY       SA's             : 8R9  8SM  8TD  8TF  8Y1  8Y2  8Y3  909  910  9AA
+XX  F048       OKAY       SA's             : 9AE                                             
+XX  F048       OKAY       E_Woerter        : A080  POLS  
+
+
+Ergebnis: ID Daten lesen  ( BN2010 )
+------------------------------------
+
+Datum     : 20.11.2017 06:52:25
+Baureihe  : F048
+Umfang    : Alle Steuergeräte	
+JobStatus : OKAY
+Anzahl    : 25
+----------------------------------------------------------------------------------------------
+Adr Grobname      SGBD       Revision  GRUPPE    Serien-Nr       Prozessklasse                           SGBM ID   Version      Datum       KM      Gerät                                                                   
+01  AIRBAG        ACSM4I     5.300     G_AIRBAG  3382168779      1   Hardware (Elektronik)               000011A4  003.005.000  27.10.2017  ---     Airbag-Elektronik                                                       
+01  AIRBAG                                                       6   Bootloader                          000011A7  007.000.001                                                                                              
+01  AIRBAG                                                       8   Software ECU Speicherimage          000011A9  007.002.000                                                                                              
+01  AIRBAG                                                       5   Codierdaten                         000011AB  007.003.002                                                                                              
+01  AIRBAG                                                       5   Codierdaten                         000011AC  007.000.020                                                                                              
+01  AIRBAG                                                       5   Codierdaten                         000011AD  004.001.011                                                                                              
+0B  SCR           SCR03      3.000     G_SCR     0070610153      1   Hardware (Elektronik)               000044FB  003.000.001  27.10.2017  ---     Selective Catalytic Reduction                                           
+0B  SCR                                                          6   Bootloader                          000031E2  004.006.001                                                                                              
+0B  SCR                                                          8   Software ECU Speicherimage          00003306  008.002.000                                                                                              
+0B  SCR                                                          13  BEGU: Detaillierung auf SWE-Ebene   00003DCD  008.002.000                                                                                              
+0D  HKFM          HKFM_G11   3.000     G_HKFM    0000630142      1   Hardware (Elektronik)               00002FA9  001.000.000  14.11.2017  ---     Heck- Funktionsmodul                                                    
+0D  HKFM                                                         6   Bootloader                          00002FAD  008.001.000                                                                                              
+0D  HKFM                                                         8   Software ECU Speicherimage          000041FD  003.007.000                                                                                              
+0D  HKFM                                                         5   Codierdaten                         00005710  003.000.000                                                                                              

@@ -7,6 +7,7 @@
                  [cheshire "5.8.0"]
                  [base64-clj "0.1.1"]
                  [ring/ring-defaults "0.2.1"]
+                 [org.clojure/core.async "0.4.474"]
                  [ring/ring-json "0.4.0"]
                  [clj-time "0.14.2"]
                  ]

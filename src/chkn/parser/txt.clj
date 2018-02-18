@@ -2,7 +2,7 @@
   (:require
    [clj-time.core :as time]
    [clj-time.format :as time-format]
-   [com.rpl.specter :as $]))
+   ))
 
 (defrecord FA [timestamp vin series istep build colour-code fabric-code time-criterion type-key sa-codes e-words])
 (defrecord Unit [address component process-class sgbm-id version])

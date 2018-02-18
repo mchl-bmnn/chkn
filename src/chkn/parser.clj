@@ -1,5 +1,6 @@
 (ns chkn.parser
-  (:require [clojure.core.async :as async]
+  (:require ;[clojure.core.async :as async]
+
             [chkn.parser.txt :as txt])
   )
 
@@ -11,10 +12,10 @@
 
 (defn parse [format content]
   (let [
-        f (async/thread (->fa format content))
-        s (async/thread (->svt format content))
+        ;f (async/thread (->fa format content))
+        ;s (async/thread (->svt format content))
         ]
-    {:fa (async/<!! f) :svt (async/<!! s)}
+    {:fa (txt/->fa content) :svt (txt/->svt content)}
     )
   )
 
